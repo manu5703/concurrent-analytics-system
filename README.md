@@ -39,9 +39,9 @@ This project demonstrates a **concurrent file processing and analytics system** 
 ```bash
 git clone https://github.com/your-username/concurrent-file-processing.git
 cd concurrent-file-processing
+```
 
-## Synchronous vs Concurrent processing
-
+## Synchronous vs Concurrent Processing
 
 | Feature                 | Concurrent Processing                        | Synchronous Processing                     |
 | ----------------------- | -------------------------------------------- | ------------------------------------------ |
@@ -49,3 +49,4 @@ cd concurrent-file-processing
 | **Response Time**       | Immediate response after job submission      | Response only after job completes          |
 | **User Experience**     | Smooth, multiple users/files handled at once | Slow, UI waits for each job to finish      |
 | **Example in this App** | Worker threads handle queued jobs            | Traditional blocking processing (not used) |
+
