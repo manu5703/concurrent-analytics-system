@@ -1,55 +1,41 @@
-# 🧩 Multi-User Concurrent File Processing and Analytics System
+# Multi-User Concurrent File Processing and Analytics System
 
-A **full-stack, scalable system** designed to handle **concurrent file processing and analytics** without blocking the user interface.  
-This project demonstrates an efficient solution for environments where **multiple users** upload files for **background analysis** — such as log parsing, data aggregation, or report generation.
-
----
-
-## 🚀 Overview
-
-The system uses a combination of the **Producer-Consumer Pattern** and **WebSockets** to achieve:
-- **High concurrency**
-- **Asynchronous task processing**
-- **Real-time feedback**
-
-Users can upload files and continue interacting with the app while analytics run in the background.  
-Live updates on job status are pushed instantly via **Flask-SocketIO**, creating a seamless, responsive experience.
+This project demonstrates a **concurrent file processing and analytics system** using Flask, SocketIO, and a worker queue. The app allows multiple users to upload files, which are processed in the background without blocking the server, providing a fast and responsive experience.
 
 ---
 
-## ⚙️ Key Concepts & Features
+## Features
 
-### 🔁 Asynchronous Processing  
-Uploads are handled instantly. Users don’t wait for long-running analytics — the backend queues the job for background processing.
-
-### ⚡ Concurrency  
-A **Worker Pool** (Python threads) enables multiple files from different users to be processed **simultaneously**, reducing overall latency.
-
-### 🧮 Producer-Consumer Pattern  
-- **Producer:** Flask API — receives files and places them into a **thread-safe queue**.  
-- **Consumer:** Worker threads — pick jobs from the queue and execute analytics.
-
-### 📡 Real-Time Status Updates  
-Each job’s progress (`QUEUED → PROCESSING → COMPLETED`) is **pushed live** to the user’s browser via **WebSocket events**, with no manual page refresh required.
-
-### 📊 Structured Analytics  
-Workers perform simple but extensible analysis on uploaded CSV/TXT files, such as:
-- Line count
-- Unique user ID activity breakdown
-- Summary metrics per file
+- **File Upload:** Users can upload CSV or text files through a web interface.  
+- **Concurrent Processing:** Uploaded files are queued and processed independently by worker threads.  
+- **Real-Time Updates:** The frontend receives live updates on job progress via WebSockets.  
+- **Fast Response:** Users get an immediate response after submitting a file, even if processing takes several seconds.  
 
 ---
 
-## 🧱 Technology Stack
+## Technologies Used
 
-| Component | Technology | Role |
-|------------|-------------|------|
-| **Backend / API** | Flask (Python) | Handles routing, file uploads, and acts as the producer. |
-| **Concurrency Layer** | Python `threading`, `queue` | Implements worker pool and job queue for background processing. |
-| **Real-Time Push** | Flask-SocketIO | Establishes WebSocket connections for live status updates. |
-| **Frontend** | React, Axios, Socket.io-client | Provides upload UI and live job tracking dashboard. |
+- **Backend:** Flask, Flask-SocketIO  
+- **Frontend:** React (optional, can serve static HTML)  
+- **Concurrency:** Python `threading`, `queue.Queue`  
+- **File Handling:** Uploaded files are stored temporarily and removed after processing  
 
 ---
 
-## 🧩 System Architecture
+## How It Works
 
+1. The user uploads a file through the frontend.  
+2. Flask receives the file and saves it locally.  
+3. The job is added to a queue, and a unique job ID is generated.  
+4. Worker threads pick up jobs from the queue and process them independently.  
+5. Results are stored in a shared dictionary, and updates are sent to the frontend in real-time via SocketIO.  
+
+---
+
+## Running the App
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/your-username/concurrent-file-processing.git
+cd concurrent-file-processing
