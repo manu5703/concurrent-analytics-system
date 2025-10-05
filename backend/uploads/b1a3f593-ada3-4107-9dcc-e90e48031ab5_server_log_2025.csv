@@ -1,0 +1,11 @@
+Timestamp,UserID,Action,Status,DataLength,Notes
+2025-10-04 10:00:01,userA,UPLOAD_START,SUCCESS,1024,Initiated large file transfer.
+2025-10-04 10:00:05,userB,LOGIN,SUCCESS,0,New session started.
+2025-10-04 10:00:10,userC,DOWNLOAD,FAILED,200,Permission denied error.
+2025-10-04 10:00:12,userA,UPLOAD_END,SUCCESS,1024,Transfer completed successfully.
+2025-10-04 10:00:15,userB,QUERY,SUCCESS,300,Database query ran fast.
+2025-10-04 10:00:20,userC,LOGIN,SUCCESS,0,Retry successful.
+2025-10-04 10:00:22,userD,DELETE,FAILED,0,File not found in system.
+2025-10-04 10:00:25,userA,QUERY,SUCCESS,450,Checking records.
+2025-10-04 10:00:28,userD,UPLOAD_START,SUCCESS,512,User D starts a small upload.
+2025-10-04 10:00:30,userB,LOGOUT,SUCCESS,0,Session terminated.
