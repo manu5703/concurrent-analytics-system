@@ -12,6 +12,11 @@ This project demonstrates a **concurrent file processing and analytics system** 
 - **Fast Response:** Users get an immediate response after submitting a file, even if processing takes several seconds.  
 
 ---
+<img width="843" height="800" alt="Screenshot 2025-10-05 130236" src="https://github.com/user-attachments/assets/17af549e-324e-430c-a505-591155adc6e9" />
+
+<img width="811" height="825" alt="Screenshot 2025-10-05 130302" src="https://github.com/user-attachments/assets/b26266dc-9f3c-403d-9c4b-216c22c4b257" />
+
+<img width="546" height="557" alt="Screenshot 2025-10-05 130310" src="https://github.com/user-attachments/assets/13a2fa12-d128-44d2-aa11-003c50ec2614" />
 
 ## Technologies Used
 
