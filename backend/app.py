@@ -47,9 +47,7 @@ def index():
         return f"Error loading frontend: {e}. Did you run 'npm run build' in the frontend directory?"
 
 
-# ----------------------------------------------------
-# 1. ASYNCHRONOUS (NON-BLOCKING) API ROUTE (The Concurrent Way)
-# ----------------------------------------------------
+# 1. ASYNCHRONOUS (NON-BLOCKING) API ROUTE
 
 @app.route('/api/upload', methods=['POST'])
 def upload_file_async():
@@ -101,9 +99,7 @@ def upload_file_async():
     }), 202 # 202 Accepted
 
 
-# ----------------------------------------------------
-# 2. SYNCHRONOUS (BLOCKING) API ROUTE (The Traditional, Slow Way)
-# ----------------------------------------------------
+# 2. SYNCHRONOUS (BLOCKING) API ROUTE
 
 @app.route('/api/sync-upload', methods=['POST'])
 def upload_file_sync():
@@ -166,7 +162,7 @@ def upload_file_sync():
             except Exception as e:
                 print(f"Error during SYNC cleanup: {e}")
 
-# --- WebSocket Events (Unchanged) ---
+# --- WebSocket Events ---
 
 @socketio.on('connect')
 def handle_connect():
